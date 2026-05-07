@@ -9,6 +9,21 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
 // @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
 export default defineConfig({
+  vite: {
+    build: {
+      // Reduce memory overhead during CI/Render builds.
+      reportCompressedSize: false,
+    },
+    preview: {
+      // Allow Render URLs and custom Korven domains.
+      allowedHosts: [
+        ".onrender.com",
+        "dashboard-9nrn.onrender.com",
+        ".korvenlab.com",
+        "dashboard.korvenlab.com",
+      ],
+    },
+  },
   tanstackStart: {
     server: { entry: "server" },
   },

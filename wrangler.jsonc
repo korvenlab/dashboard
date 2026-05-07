@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tanstack-start-app",
+  "compatibility_date": "2025-09-24",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "src/server.ts"
+  // Secrets / vars no Worker (não vão ao browser). Exemplo:
+  // "vars": {
+  //   "WAGOO_API_BASE_URL": "https://api-wagoo...",
+  //   "TWO_AVENDAS_API_BASE_URL": "https://api-2avendas..."
+  // }
+  // wrangler secret put WAGOO_METRICS_API_KEY
+  // wrangler secret put TWO_AVENDAS_METRICS_API_KEY
+}
